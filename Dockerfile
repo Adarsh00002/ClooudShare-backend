@@ -6,10 +6,10 @@ FROM maven:3.9.5-eclipse-temurin-21 AS build
 # 1. वर्किंग डायरेक्टरी सेट करें
 WORKDIR /app
 
-# 2. Maven प्रोजेक्ट फ़ाइलें (pom.xml) कॉपी करें
+
 COPY pom.xml .
 
-# 3. सभी सोर्स कोड कॉपी करें
+
 COPY src ./src
 
 # 4. Maven पैकेजिंग कमांड चलाएँ
