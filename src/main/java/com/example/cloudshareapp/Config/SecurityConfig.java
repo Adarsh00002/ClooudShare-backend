@@ -57,7 +57,7 @@ public class SecurityConfig {
 
         config.setAllowedOrigins(List.of(
                 "https://cloudsharefilesharing.netlify.app",
-            "http://http://localhost:5173"
+    "http://localhost:5173"
         ));
 
         config.setAllowedMethods(List.of("GET","POST","PUT","PATCH","DELETE","OPTIONS"));
