@@ -36,7 +36,13 @@ public class ClerkJwtFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
 
         String path = request.getRequestURI();
-        
+
+        // 🔥 IMPORTANT: webhook bypass
+        if (path.startsWith("/api/v1.0/webhooks")) {
+            filterChain.doFilter(request, response);
+            return;
+        }
+
         String authHeader = request.getHeader("Authorization");
 
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
@@ -81,7 +87,7 @@ public class ClerkJwtFilter extends OncePerRequestFilter {
             filterChain.doFilter(request, response);
 
         } catch (Exception e) {
-            e.printStackTrace(); // 👈 DEBUG
+            e.printStackTrace();
             response.sendError(HttpServletResponse.SC_FORBIDDEN, "Invalid JWT");
         }
     }
