@@ -3,9 +3,11 @@ package com.example.cloudshareapp.Repository;
 import com.example.cloudshareapp.document.UserCredits;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import java.util.Optional;
+import java.util.List;
+
 
 public interface UserCreditsRepository extends MongoRepository<UserCredits,String> {
 
-    Optional<UserCredits> findByClerkId(String clerkId);
+
+    List<UserCredits> findAllByClerkId(String clerkId);
 }
